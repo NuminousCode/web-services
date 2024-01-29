@@ -1,0 +1,25 @@
+/*****************
+Custom Font Definitions
+******************/
+
+@font-face {
+    font-family: 'Technovier';
+    src: url('../public/fonts/Techovier\ .ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Technovier Bold';
+    src: url('../public/fonts/Techovier\ Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../public/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  

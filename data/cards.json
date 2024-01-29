@@ -1,0 +1,24 @@
+[
+    {
+        "Card1":[
+        "Flexible and Customizable: Ideal for small, quick tasks or consultations.",
+        "Immediate Start: Quick response and service initiation.",
+        "Pay As You Go: Charged based on actual hours worked.",
+        "Hourly Rate $150"
+    ],
+        "Card2":[
+        "Full-Day Engagement: Best for intensive work requiring more than a few hours",
+        "Comprehensive Coverage: Suitable for longer tasks needing sustained focus.",
+        "Ideal for Workshops: Perfect for training sessions or in-depth analysis.",
+        "Daily Rate $1000"
+        
+    ],
+        "Card3":[
+        "End-to-End Solution: Tailored for complete project delivery from start to finish.",
+        "Fixed Project Price: Total cost determined upfront based on project scope.",
+        "Holistic Approach: Inclusive of all aspects of the project, ensuring thorough execution",
+        "Custom Price Depending on Project"
+    ]
+
+    }
+]

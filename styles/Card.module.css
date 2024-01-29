@@ -1,0 +1,28 @@
+.containerCard{
+    position: relative;
+    width: 80%;
+    border: solid #7B919D 1px;
+    padding: 20px;
+    background-color: rgba(121, 219, 251, .5);
+    border-radius: 10px;
+}
+
+.list :nth-child(4){
+    color: #ede8e8;
+    margin-top: 10px;
+    list-style-type: none;
+    font-family: 'Orbitron';
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 4px #051d30;
+}
+.list {
+    margin-left: 1rem;
+}
+
+.listItem {
+margin: 10px 0;
+text-shadow: 1px 1px 4px #051d30;
+}
+

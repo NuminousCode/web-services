@@ -1,0 +1,25 @@
+.containerExpertise{
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+    /* height:500px; */
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgba(237, 232, 232, .6);
+    z-index: 10;
+}
+
+.title{
+    color: #0c4d83;
+    text-shadow: 2px 2px 2px #051d30;
+}
+
+.content{
+    margin-top: 10%;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 1px 1px 4px #051d30;
+}
+

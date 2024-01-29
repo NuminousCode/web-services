@@ -1,0 +1,28 @@
+.containerHero{
+    width: 100%;
+    margin-top: 10%;
+    min-height: 500px;
+    /* border: solid red 1px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 5;
+    position: relative;
+}
+.headshot{
+    /* border: solid red 1px; */
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.heroText{
+    font-size: 28px;
+    min-height: 150px;
+    /* border: solid red 1px; */
+    z-index: 10;
+    padding: 0 10%;
+    color: white;
+    text-align: center;
+}

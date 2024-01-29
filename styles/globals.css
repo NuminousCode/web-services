@@ -1,0 +1,11 @@
+@import './fonts.css';
+
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  body{
+    overflow-x: hidden;
+  }

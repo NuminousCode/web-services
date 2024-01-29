@@ -1,0 +1,16 @@
+.containerMain{
+    margin-top: 10%;
+    font-size: 32px;
+
+    /* border: solid red 1px; */
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    font-family: 'Technovier Bold';
+}
+
+@media(min-width: 500px){
+    .containerMain{
+        font-size: 36px;
+    }
+}

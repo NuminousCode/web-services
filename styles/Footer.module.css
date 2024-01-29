@@ -1,0 +1,25 @@
+.containerMain{
+    bottom: 0;
+    height: 500px;
+    width: 100%;
+    background-color:#051D30;
+    z-index: 10;
+    margin-top: 50%;
+}
+
+.footerText{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 1%;
+}
+
+.footerBottom{
+    border: solid red 1px;
+    width: 100%;
+    height: 500px;
+    background-color: #051D30;
+}
+.svg{
+    transform: translateY(-50px)
+}
