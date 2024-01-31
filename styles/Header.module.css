@@ -10,6 +10,10 @@
     font-family: 'Technovier Bold';
 }
 
+.break{
+    display: none;
+}
+
 .buttonWrapper{
     display: none;
 }
@@ -23,6 +27,7 @@
     }
 }
 @media(min-width: 750px){
+
     .containerMain{
         /* border: solid red 1px; */
         margin-top: 5%;
@@ -34,9 +39,9 @@
         max-width: 1200px;
     }
     .title{
-        /* border: solid blue 1px; */
+        font-size: 48px;
         text-align: start;
-        width: 70%;
+        width: 100%;
     }
     .buttonWrapper{
         display: flex;
@@ -48,10 +53,17 @@
     .containerMain{
         margin-top: 5%;
     }
+    .break{
+        display: block;
+    }
 
 }
 @media(min-width: 1200px){
     .title{
         font-size: 58px
     }
+    .break{
+        display: none;
+    }
+    
 }

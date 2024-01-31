@@ -5,7 +5,7 @@ const Header = () => {
   const labelContact = "Contact Me Now"
   return (
     <div className = {styles.containerMain}>
-      <div className = {styles.title}> Magis Web Services</div>
+      <div className = {styles.title}> Magis <br className = {styles.break}/>Web Services</div>
       <div className = {styles.buttonWrapper}><Button className = {styles.button} label={labelContact}/></div>
     </div>
   )
