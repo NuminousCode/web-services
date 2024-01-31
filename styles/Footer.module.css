@@ -23,3 +23,9 @@
 .svg{
     transform: translateY(-50px)
 }
+
+@media(min-width: 750px){
+    .containerMain{
+        margin-top: 15%;
+    }
+}

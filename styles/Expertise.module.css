@@ -4,16 +4,17 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20%;
-    /* height:500px; */
     width: 80%;
     border-radius: 10px;
-    background: radial-gradient(circle, hsla(206, 76%, 13%, 1) 0%, hsla(195, 94%, 73%, .8) 100%);
+    background: radial-gradient(circle, hsla(206, 97%, 15%, 1) 0%, hsla(197, 51%, 69%, 1) 100%);
     z-index: 10;
 }
 
 .title{
-    color: #0c4d83;
+    /* border: solid red 1px; */
+    color: #a9d6e5;
     text-shadow: 2px 2px 2px #051d30;
+    font-size: 36px;
 }
 
 .content{
@@ -21,5 +22,17 @@
     font-size: 18px;
     text-align: center;
     text-shadow: 1px 1px 4px #051d30;
+}
+
+@media(min-width: 750px){
+    .containerExpertise{
+        margin-top: 10%;
+        padding: 5%;
+    }
+    .title{
+        font-size: 48px;
+    }
+
+    
 }
 

@@ -13,8 +13,7 @@ const Main = ({data, content}) => {
 
   const gradient1 = { 
     background: 'linear-gradient(135deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);'
-  };
-  const gradient2 = { 
+  };const gradient2 = { 
     background: 'linear-gradient(45deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);'
   };
 
@@ -32,7 +31,7 @@ const Main = ({data, content}) => {
         <h2 className = {styles.titleCard}>Project</h2>
         <Card data = {contentCard3} gradient = {gradient1}/>
         <Expertise />
-        <Button label={labelContact}/>
+        <Button label={labelContact} className={styles.button}/>
       </div>
       
     </div>

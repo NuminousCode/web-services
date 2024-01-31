@@ -27,3 +27,12 @@ margin: 10px 0;
 text-shadow: 1px 1px 4px #051d30;
 }
 
+@media(min-width: 750px){
+    .containerCard{
+        max-width: 500px;
+        font-size: 24px;
+    }
+    .list :nth-child(4){
+        font-size: 36px;
+    }
+}
