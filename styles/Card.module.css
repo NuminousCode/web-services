@@ -1,7 +1,7 @@
 .containerCard{
     position: relative;
     width: 80%;
-    max-width: 350px;
+    max-width: 450px;
     border: solid #7B919D 1px;
     padding: 20px;
     background-color: rgba(121, 219, 251, .5);
@@ -27,6 +27,15 @@ margin: 10px 0;
 text-shadow: 1px 1px 4px #051d30;
 }
 
+@media(min-width: 550px){
+    .containerCard{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 20px;
+        min-height: 400px;
+    }
+}
 @media(min-width: 750px){
     .containerCard{
         max-width: 500px;

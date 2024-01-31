@@ -1,4 +1,6 @@
 .containerMain{
+    width: 100%;
+    /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +37,11 @@
 }
 
 @media(min-width: 750px){
+    .containerMain{
+        width: 90%;
+        align-self: center;
+        max-width: 1200px;
+    }
     .cards{
         margin-top: 10%;
     }
