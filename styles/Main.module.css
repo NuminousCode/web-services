@@ -32,6 +32,11 @@
     text-align: center;
 }
 
-.contentCard1{
-    
+@media(min-width: 750px){
+    .cards{
+        margin-top: 10%;
+    }
+    .rate{
+        font-size: 48px;
+    }
 }

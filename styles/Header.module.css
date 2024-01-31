@@ -10,6 +10,14 @@
     font-family: 'Technovier Bold';
 }
 
+.title{
+    /* border: solid blue 1px; */
+}
+
+.buttonWrapper{
+    display: none;
+}
+
 @media(min-width: 550px){
     .containerMain{
         width: 80%;
@@ -18,7 +26,14 @@
 }
 @media(min-width: 750px){
     .containerMain{
-        width: 80%;
-        font-size: 64px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 90%;
+    }
+    .buttonWrapper{
+        display: flex;
+        justify-content:center;
+        /* border: solid red 1px; */
     }
 }
