@@ -2,7 +2,6 @@
     width: 100%;
     margin-top: 10%;
     height: 100vh;
-    min-height: 550px;
     max-height: 650px;
     /* border: solid red 1px; */
     display: flex;
@@ -84,25 +83,18 @@
         height: 250px;
     }
     .button{
-        /* z-index: 10;
-        position: absolute;
-        bottom: 15%;
-        align-self: flex-end;
-        margin-right: 15%; */
         display: none;
     }
 }
 @media(min-width: 1200px){
     .headshot{
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
     }
     .heroText{
-        border-radius: 20px;
         font-size: 42px;
-        margin-top: 0;
-        margin-left: 10%;
-        padding: 5%;
+        max-width: 600px;
+        /* border: solid red 1px; */
     }
     .topWrapper{
         /* border: solid red 1px; */
@@ -111,8 +103,16 @@
     }
 }
 @media(min-width: 1400px){
-    .headshot{
-        width: 400px;
-        height: 400px;
+    .containerHero{
+        margin-top: 5%;
     }
+    .heroText{
+        margin-left: 0%;
+        /* border: solid red 1px; */
+    }
+    .headshot{
+        width: 250px;
+        height: 250px;
+    }
+
 }

@@ -8,6 +8,15 @@
     height: 100%;
 }
 
+.cardsInner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    height: 100%;
+}
+
 .rate{
     /* border: solid red 1px; */
     text-align: center;
@@ -31,7 +40,6 @@
 }
 
 .titleCard{
-    /* border: solid red 1px; */
     width: 80%;
     text-align: center;
 }
@@ -54,5 +62,22 @@
     }
     .button{
         margin-top: 15%;
+    }
+}
+@media(min-width: 1400px){
+    .cards{
+        margin-top: 5%;
+    }
+    .cardsInner{
+        margin-top: 5%;
+        /* border: solid red 1px; */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .titleCard{
+        position: absolute;
+    }
+    .titleCard{
+        display: none;
     }
 }

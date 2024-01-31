@@ -62,8 +62,15 @@
     .title{
         font-size: 58px
     }
+    .containerMain{
+        margin-top: 2%;
+    }
+}
+@media(min-width: 1400px){
     .break{
         display: none;
     }
-    
+    .containerMain{
+        margin-top: 0%;
+    }
 }

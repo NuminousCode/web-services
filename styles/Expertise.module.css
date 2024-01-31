@@ -11,13 +11,13 @@
 }
 
 .title{
-    /* border: solid red 1px; */
     color: #a9d6e5;
     text-shadow: 2px 2px 2px #051d30;
     font-size: 36px;
 }
 
 .content{
+    line-height: 30px;
     margin-top: 10%;
     font-size: 18px;
     text-align: center;
@@ -32,7 +32,12 @@
     .title{
         font-size: 48px;
     }
-
-    
+}
+@media(min-width: 1000px){
+    .content{
+        line-height: 40px;
+        margin-top: 5%;
+        font-size: 24px;
+    }
 }
 
