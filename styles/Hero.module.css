@@ -1,7 +1,7 @@
 .containerHero{
     width: 100%;
     margin-top: 10%;
-    min-height: 500px;
+    min-height: 550px;
     /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
@@ -13,16 +13,19 @@
 .headshot{
     /* border: solid red 1px; */
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
 
 .heroText{
-    font-size: 28px;
+    margin-top: 10%;
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 1) 0%, hsla(195, 94%, 73%, 1) 100%);
+    font-size: 36px;
+    /* font-weight: bold; */
     min-height: 150px;
     /* border: solid red 1px; */
     z-index: 10;
-    padding: 0 10%;
-    color: white;
+    padding: 5% 5%;
+    color: #08253B;
     text-align: center;
 }

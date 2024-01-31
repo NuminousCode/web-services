@@ -8,8 +8,8 @@ const Hero = (data) => {
     <div className = {styles.containerHero}>
         <img src={headshotUrl} alt="image" className = {styles.headshot} />
             <div className = {styles.heroText}>
-                <div className = {styles.name}>Hi, my name is Gerardo</div>
-                <div className = {styles.slogan}>I build the web you need.</div>
+                <div className = {styles.name}>Hi, my name is Gerardo.</div>
+                <div className = {styles.slogan}>I build the web you want.</div>
             </div>
         <Button label={labelContact}/>
     </div>
