@@ -12,6 +12,14 @@
     z-index: 5;
     position: relative;
 }
+
+.topWrapper{
+    width: 100%;
+    /* border: solid red 1px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .headshot{
     /* border: solid red 1px; */
     border-radius: 50%;
@@ -30,4 +38,33 @@
     padding: 5% 5%;
     color: #08253B;
     text-align: center;
+}
+.button{
+    margin-top: 15%;
+}
+
+@media(min-width: 750px){
+    .topWrapper{
+        flex-direction: row;
+        align-items: center;
+        width: 90%;
+    }
+    .heroText{
+        border-radius: 20px;
+        font-size: 24;
+        margin-top: 0;
+        margin-left: 10%;
+    }
+    .headshot{
+        width: 250px;
+        height: 250px;
+    }
+    .button{
+        /* z-index: 10;
+        position: absolute;
+        bottom: 15%;
+        align-self: flex-end;
+        margin-right: 15%; */
+        display: none;
+    }
 }
