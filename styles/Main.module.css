@@ -38,12 +38,16 @@
     /* justify-content: space-between; */
     z-index: 10;
 }
-
 .titleCard{
     width: 80%;
     text-align: center;
 }
-
+.button{
+    margin-top: 15%;
+}
+.desktopTitleCards{
+    display: none;
+}
 @media(min-width: 750px){
     .containerMain{
         width: 90%;
@@ -65,19 +69,28 @@
     }
 }
 @media(min-width: 1400px){
+    .desktopTitleCards{
+        font-size: 24px;
+        /* border: solid red 1px; */
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        justify-content: space-between;
+        margin: 5% 0 2%;
+    }
     .cards{
         margin-top: 5%;
     }
     .cardsInner{
-        margin-top: 5%;
+        
         /* border: solid red 1px; */
         flex-direction: row;
         justify-content: space-between;
     }
     .titleCard{
-        position: absolute;
+        display:none;
     }
-    .titleCard{
-        display: none;
+    .button{
+        margin-top: 10%;
     }
 }
