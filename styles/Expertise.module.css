@@ -7,7 +7,7 @@
     /* height:500px; */
     width: 80%;
     border-radius: 10px;
-    background-color: rgba(237, 232, 232, .6);
+    background: radial-gradient(circle, hsla(206, 76%, 13%, 1) 0%, hsla(195, 94%, 73%, .8) 100%);
     z-index: 10;
 }
 

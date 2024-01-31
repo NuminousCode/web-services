@@ -1,7 +1,9 @@
 .containerHero{
     width: 100%;
     margin-top: 10%;
+    height: 100vh;
     min-height: 550px;
+    max-height: 650px;
     /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
