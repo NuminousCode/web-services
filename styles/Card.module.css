@@ -41,7 +41,6 @@
         padding: 5%;
     }
     .list {
-        /* border: solid red 1px; */
         min-height: 300px;
         display: flex;
         flex-direction: column;
@@ -86,5 +85,7 @@
     .listItem {
         font-size: 18px;
     }
-
+    .containerCard:nth-of-type(3) ul {
+        justify-content: center;
+    }
 }
