@@ -10,10 +10,8 @@
 }
 
 .footerText{
-    /* position: absolute; */
-    /* text-align: center; */
-    /* width: 100%; */
-    /* bottom: 1%; */
+    font-size: 14px;
+    /* border: solid red 1px; */
 }
 .svg{
     transform: translateY(-50px)
@@ -22,16 +20,22 @@
     bottom: 1%;
     width: 90%;
     position: absolute;
-    border: solid red 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-self: center;
 }
 
+.items :nth-child(2){
+    margin-right: 5%;
+}
+
 @media(min-width: 750px){
     .containerMain{
         margin-top: 15%;
+    }
+    .footerText{
+        font-size: 16px;
     }
 }
 @media(min-width: 750px){
