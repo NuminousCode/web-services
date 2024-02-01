@@ -18,14 +18,13 @@
 }
 
 .rate{
-    /* border: solid red 1px; */
     text-align: center;
     font-size: 42px;
 }
 
 .titleCard{
     font-size: 36px;
-    margin: 10% 0 2% 0;
+    margin: 5% 0 2% 0;
 }
 
 .cards{
@@ -68,6 +67,12 @@
         margin-top: 15%;
     }
 }
+@media(min-width: 1000px){
+.rate{
+    font-size: 64px;
+}
+}
+
 @media(min-width: 1400px){
     .desktopTitleCards{
         font-size: 24px;
@@ -90,5 +95,8 @@
     }
     .button{
         margin-top: 10%;
+    }
+    .rate{
+        margin-top: 5%;
     }
 }
