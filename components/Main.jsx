@@ -24,18 +24,18 @@ const Main = ({data, content}) => {
       <Hero data={data}/>
       <div className = {styles.cards}>
         <h1 className = {styles.rate}>Select Your Rate</h1>
-          <div className = {styles.desktopTitleCards}>
-            <h2 className = {styles.desktopTitleCard}>Hourly</h2>
-            <h2 className = {styles.desktopTitleCard}>Daily</h2>
-            <h2 className = {styles.desktopTitleCard}>Project</h2>
-          </div>
+        <div className = {styles.desktopTitleCards}>
+          <h2 className = {styles.desktopTitleCard}>Hourly</h2>
+          <h2 className = {styles.desktopTitleCard}>Daily</h2>
+          <h2 className = {styles.desktopTitleCard}>Project</h2>
+        </div>
         <div className = {styles.cardsInner}>
-        <h2 className = {styles.titleCard}>Hourly</h2>
-        <Card data = {contentCard1} gradient = {gradient1}/>
-        <h2 className = {styles.titleCard}>Daily</h2>
-        <Card data = {contentCard2} gradient = {gradient2}/>
-        <h2 className = {styles.titleCard}>Project</h2>
-        <Card data = {contentCard3} gradient = {gradient1}/>
+          <h2 className = {styles.titleCard}>Hourly</h2>
+          <Card data = {contentCard1} gradient = {gradient1}/>
+          <h2 className = {styles.titleCard}>Daily</h2>
+          <Card data = {contentCard2} gradient = {gradient2}/>
+          <h2 className = {styles.titleCard}>Project</h2>
+          <Card data = {contentCard3} gradient = {gradient1}/>
         </div>
         <Expertise />
         <Button label={labelContact} className={styles.button}/>
