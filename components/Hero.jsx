@@ -1,8 +1,8 @@
 import styles from '../styles/Hero.module.css'
 import Button from '../components/Button'
 
-const Hero = (data) => {
-    const headshotUrl = data.data[1]
+const Hero = ({data, handleOpen}) => {
+    const headshotUrl = data[1]
     const labelContact = "Contact Me Now"
   return (
     <div className = {styles.containerHero}>
@@ -13,7 +13,7 @@ const Hero = (data) => {
                 <div className = {styles.slogan}>I build the web you want.</div>
             </div>
       </div>
-        <Button label={labelContact} className = {styles.button}/>
+        <Button label={labelContact} className = {styles.button} onClick={handleOpen}/>
     </div>
   )
 }

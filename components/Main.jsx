@@ -5,7 +5,7 @@ import Card from '../components/Card'
 import Expertise from '../components/Expertise'
 import Button from '../components/Button'
 
-const Main = ({data, content}) => {
+const Main = ({data, content, handleOpen}) => {
   const cardContent = content[0]
   const contentCard1 = cardContent.Card1
   const contentCard2 = cardContent.Card2
@@ -21,7 +21,7 @@ const Main = ({data, content}) => {
   
   return (
     <div className = {styles.containerMain} >
-      <Hero data={data}/>
+      <Hero data={data} handleOpen={handleOpen}/>
       <div className = {styles.cards}>
         <h1 className = {styles.rate}>Select Your Rate</h1>
         <div className = {styles.desktopTitleCards}>
@@ -38,7 +38,7 @@ const Main = ({data, content}) => {
           <Card data = {contentCard3} gradient = {gradient1}/>
         </div>
         <Expertise />
-        <Button label={labelContact} className={styles.button}/>
+        <Button label={labelContact} className={styles.button} onClick={handleOpen}/>
       </div>
     </div>
   )

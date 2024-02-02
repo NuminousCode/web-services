@@ -1,18 +1,28 @@
+import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 import fs from 'fs'
 import path from 'path'
+import Modal from '@mui/material/Modal';
+import Form from '../components/Form'
 
 const Home = ({params}) => {
   const cardContent = params.cardContent
   const imgUrls = params.imgUrls
   const vidUrl = params.imgUrls[0]
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  
   return (
     <div className = {styles.containerMain}>
-      <Header />
-      <Main data = {imgUrls} content = {cardContent}/>
+      <Modal open={open} onClose={handleClose}>
+        <Form />
+      </Modal>
+      <Header handleOpen={handleOpen} />
+      <Main data = {imgUrls} content = {cardContent} handleOpen={handleOpen}/>
       <Footer />
       <video src={vidUrl} className = {styles.backgroundVideo} autoPlay muted loop/>
     </div>
