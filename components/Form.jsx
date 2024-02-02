@@ -28,15 +28,15 @@ function MyForm() {
                 Call or Text Now <br />
                 402-929-9017
             </div>
-            <TextField className = {styles.textInput} label="First Name" variant="outlined" margin="normal" required fullWidth />
-            <TextField className = {styles.textInput} label="Last Name" variant="outlined" margin="normal" required fullWidth />
-            <TextField className = {styles.textInput} label="Email" type="email" variant="outlined" margin="normal" required fullWidth />
-            <TextField className = {styles.textInput} label="Phone" type="tel" variant="outlined" margin="normal" fullWidth />
-            <TextField className = {styles.textInput} label="City" variant="outlined" margin="normal" fullWidth />
-            <TextField className = {styles.textInput} label="State" variant="outlined" margin="normal" fullWidth />
-            <TextField className = {styles.textInput} label="Country" variant="outlined" margin="normal" fullWidth />
+            <TextField className = {styles.textInput} label="First Name" variant="outlined" margin="normal" required  />
+            <TextField className = {styles.textInput} label="Last Name" variant="outlined" margin="normal" required  />
+            <TextField className = {styles.textInput} label="Email" type="email" variant="outlined" margin="normal" required  />
+            <TextField className = {styles.textInput} label="Phone" type="tel" variant="outlined" margin="normal"  />
+            <TextField className = {styles.textInput} label="City" variant="outlined" margin="normal"  />
+            <TextField className = {styles.textInput} label="State" variant="outlined" margin="normal"  />
+            <TextField className = {styles.textInput} label="Country" variant="outlined" margin="normal"  />
 
-            <FormControl fullWidth margin="normal">
+            <FormControl  margin="normal">
                 <InputLabel id="contract-label">Contract</InputLabel>
                 <Select
                     labelId="contract-label"
@@ -50,7 +50,7 @@ function MyForm() {
                 </Select>
             </FormControl>
 
-            <TextField label="Budget" variant="outlined" margin="normal" fullWidth />
+            <TextField label="Budget" variant="outlined" margin="normal"  />
 
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Box marginY={2}>
@@ -77,12 +77,12 @@ function MyForm() {
                 label="Describe Project"
                 variant="outlined"
                 margin="normal"
-                fullWidth
+                
                 multiline
                 rows={4}
             />
 
-            <Button className = {styles.button} type="submit" fullWidth variant="contained" color="primary" sx={{ mt: 3 }}>
+            <Button className = {styles.button} type="submit"  variant="contained" color="primary" sx={{ mt: 3 }}>
                 Submit
             </Button>
         </form>
