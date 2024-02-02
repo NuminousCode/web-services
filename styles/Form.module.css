@@ -1,0 +1,27 @@
+.containerForm{
+    background: white;
+    opacity: .7;
+    border: solid blue 1px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-self: center;
+    /* max-height: 90vh; */
+    /* border: solid red 1px; */
+}
+
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.textInput{
+    height: 20px;
+}
+
+.button{
+    max-width: 200px;
+    align-self: center;
+}
