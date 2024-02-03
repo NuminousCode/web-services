@@ -21,9 +21,12 @@ function MyForm({ handleClose }) {
         phone: '',
         city: '',
         state: '',
+        company: '',
         contract: '',
         budget: '',
-        message: ''
+        description: '',
+        startDate: null, 
+        endDate: null   
     });
 
     const handleInputChange = (e) => {
@@ -32,8 +35,14 @@ function MyForm({ handleClose }) {
             [e.target.name]: e.target.value
         });
     };
-    
 
+    const handleDateChange = (name, newValue) => {
+        setFormData({
+            ...formData,
+            [name]: newValue
+        });
+    };
+    
     const US_STATES = [
         "Alabama", "Alaska", "Arizona", "Arkansas", 
         "California", "Colorado", "Connecticut", 
@@ -53,7 +62,7 @@ function MyForm({ handleClose }) {
     ];
 
     const validateForm = () => {
-        const { firstName, lastName, email, phone, city, state, message } = formData;
+        const { firstName, lastName, email, phone, city, state, company, budget, contract, description } = formData;
         let errors = [];
         if (!firstName) errors.push('First Name');
         if (!lastName) errors.push('Last Name');
@@ -61,7 +70,10 @@ function MyForm({ handleClose }) {
         if (!phone) errors.push('Phone');
         if (!city) errors.push('City');
         if (!state) errors.push('State');
-        if (!message) errors.push('Message');
+        if (!company) errors.push('Company');
+        if (!budget) errors.push('Budget');
+        if (!contract) errors.push('Contract');
+        if (!description) errors.push('description');
 
         if (errors.length > 0) {
             setFormErrors(`Please fill the following fields: ${errors.join(', ')}.`);
@@ -87,12 +99,16 @@ function MyForm({ handleClose }) {
             setFormData({
                 firstName: '',
                 lastName: '',
-                company: '',
+                company:'',
                 email: '',
                 phone: '',
                 city: '',
                 state: '',
-                message: ''
+                contract: '',
+                budget: '',
+                description: '',
+                startDate: null, 
+                endDate: null   
             });
             setIsSubmitted(true); 
                 
@@ -103,7 +119,7 @@ function MyForm({ handleClose }) {
         } (error) => {
             console.log('Form submission error:', error.text);
         
-            setSubmissionMessage('Failed to send the message. Please try again.');
+            setSubmissionDescription('Failed to send the description. Please try again.');
         };
     };
 
@@ -124,25 +140,29 @@ function MyForm({ handleClose }) {
         <a href="tel:+14092929017" className = {styles.link}><div className = {styles.number}>409-292-9017</div></a>
     </div>
     <div className = {styles.formGroup}>
-        <label for="exampleInputEmail1">First Name</label>
-        <input type="email" className={styles.formControl} id="exampleInputEmail1"  placeholder="Enter First Name" value={formData.firstName} name="firstName"/>
+        <label for="firstName">First Name</label>
+        <input type="email" className={styles.formControl} id="firstName"  placeholder="Enter First Name" value={formData.firstName} name="firstName"/>
     </div>
     <div className = {styles.formGroup}>
-        <label for="exampleInputEmail1">Last Name</label>
-        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="Last Name" value={formData.lastName} name="lastName"/>
+        <label for="lastName">Last Name</label>
+        <input type="text" className={styles.formControl} id="lastName"  placeholder="Last Name" value={formData.lastName} name="lastName"/>
     </div>
     <div className = {styles.formGroup}>
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="Enter email" value={formData.email} name="email"/>
+        <label for="email">Email address</label>
+        <input type="text" className={styles.formControl} id="email"  placeholder="Enter email" value={formData.email} name="email"/>
         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div className = {styles.formGroup}>
-        <label for="exampleInputEmail1">Phone</label>
-        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="Phone" value={formData.phone} name="phone"/>
+        <label for="phone">Phone</label>
+        <input type="text" className={styles.formControl} id="phone"  placeholder="Phone" value={formData.phone} name="phone"/>
     </div>
     <div className = {styles.formGroup}>
-        <label for="exampleInputEmail1">City</label>
-        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="City" value={formData.city} name="city"/>
+        <label for="city">City</label>
+        <input type="text" className={styles.formControl} id="city"  placeholder="City" value={formData.city} name="city"/>
+    </div>
+    <div className = {styles.formGroup}>
+        <label for="company">Company</label>
+        <input type="text" className={styles.formControl} id="company"  placeholder="Company" value={formData.company} name="company"/>
     </div>
   </div>
   <div>
@@ -169,11 +189,11 @@ function MyForm({ handleClose }) {
         <select className={styles.formControl} id="contractType" defaultValue="" value={formData.budget} onChange={handleInputChange}>
             <option value="" disabled>Select Range</option>
             <option value="$0-$500">$0-$500</option>
-            <option value="$0-$500">$500-$1000</option>
-            <option value="$0-$500">$1000-$5000</option>
-            <option value="$0-$500">$5000-$20000</option>
-            <option value="$0-$500">$20000-$50000</option>
-            <option value="$0-$500">$50000+</option>
+            <option value="$500-$1000">$500-$1000</option>
+            <option value="$1000-$5000">$1000-$5000</option>
+            <option value="$5000-$20000">$5000-$20000</option>
+            <option value="$20000-$50000">$20000-$50000</option>
+            <option value="$50000+">$50000+</option>
         </select>
         </div>
 
@@ -181,6 +201,8 @@ function MyForm({ handleClose }) {
   <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
     <div className = {styles.dateTitle}>When do you need me to start</div>
           <DatePicker
+           value={formData.startDate}
+           onChange={(newValue) => handleDateChange('startDate', newValue)}
             sx={{ width: 300, '& .MuiInputBase-input': {
                 height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px'  
             }, '& .MuiSvgIcon-root': {
@@ -205,6 +227,8 @@ function MyForm({ handleClose }) {
   <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
     <div className = {styles.dateTitle}>When should the project be completed</div>
           <DatePicker
+           value={formData.endDate}
+           onChange={(newValue) => handleDateChange('endDate', newValue)}
             sx={{ width: 300, '& .MuiInputBase-input': {
                 height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px'  
             }, '& .MuiSvgIcon-root': {
