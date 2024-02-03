@@ -1,11 +1,39 @@
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from '../styles/Form.module.css'
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-function MyForm() {
+function MyForm({ handleClose }) {
+    const form = useRef()
+    const [emailError, setEmailError] = useState('');
+    const [formErrors, setFormErrors] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const emailRegex = /\S+@\S+\.\S+/;
+    // Form data state variable declaration
+
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        company:'',
+        email: '',
+        phone: '',
+        city: '',
+        state: '',
+        contract: '',
+        budget: '',
+        message: ''
+    });
+
+    const handleInputChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+    
+
     const US_STATES = [
         "Alabama", "Alaska", "Arizona", "Arkansas", 
         "California", "Colorado", "Connecticut", 
@@ -23,49 +51,104 @@ function MyForm() {
         "Vermont", "Virginia", 
         "Washington", "West Virginia", "Wisconsin", "Wyoming"
     ];
-    
 
-    const [date, setDate] = useState('');
-    const [selectedDate, setSelectedDate] = useState(null);
-    const handleDateChange = (newDate) => {
-        setDate(newDate);
+    const validateForm = () => {
+        const { firstName, lastName, email, phone, city, state, message } = formData;
+        let errors = [];
+        if (!firstName) errors.push('First Name');
+        if (!lastName) errors.push('Last Name');
+        if (!email || emailError) errors.push('Email');
+        if (!phone) errors.push('Phone');
+        if (!city) errors.push('City');
+        if (!state) errors.push('State');
+        if (!message) errors.push('Message');
+
+        if (errors.length > 0) {
+            setFormErrors(`Please fill the following fields: ${errors.join(', ')}.`);
+            return false;
+        }
+        return true;
     };
 
+    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validateForm()) {
+            emailjs.sendForm(serviceId, templateId, form.current, publicKey).then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+
+            console.log('Form submitted:', formData);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                company: '',
+                email: '',
+                phone: '',
+                city: '',
+                state: '',
+                message: ''
+            });
+            setIsSubmitted(true); 
+                
+            setTimeout(() => {
+                setIsSubmitted(false); 
+            }, 5000);
+
+        } (error) => {
+            console.log('Form submission error:', error.text);
+        
+            setSubmissionMessage('Failed to send the message. Please try again.');
+        };
+    };
+
+    const handleCloseModal = (e) => {
+        if (e.currentTarget === e.target) {
+            handleClose(); 
+        }
+    };
+    const [cleared, setCleared] = useState(false);
+
     return (
-    <div className = {styles.containerMain}>
-       <form className = {styles.form}>
-        <div className = {styles.formInner}>
+    <div className = {styles.containerMain} onClick={handleCloseModal}>
+       <form className = {styles.form} ref={form} onSubmit={handleSubmit}>
+        <div className = {styles.formInner} onClick={(e) => e.stopPropagation()}>
   <div className="form-group">
     <div className = {styles.containerCall}>
         <div className = {styles.title}>Call Or Text Now</div>
-        <div className = {styles.number}>409-292-9017</div>
+        <a href="tel:+14092929017" className = {styles.link}><div className = {styles.number}>409-292-9017</div></a>
     </div>
     <div className = {styles.formGroup}>
         <label for="exampleInputEmail1">First Name</label>
-        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name"/>
+        <input type="email" className={styles.formControl} id="exampleInputEmail1"  placeholder="Enter First Name" value={formData.firstName} name="firstName"/>
     </div>
     <div className = {styles.formGroup}>
         <label for="exampleInputEmail1">Last Name</label>
-        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name"/>
+        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="Last Name" value={formData.lastName} name="lastName"/>
     </div>
     <div className = {styles.formGroup}>
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="Enter email" value={formData.email} name="email"/>
         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div className = {styles.formGroup}>
         <label for="exampleInputEmail1">Phone</label>
-        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone"/>
+        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="Phone" value={formData.phone} name="phone"/>
     </div>
     <div className = {styles.formGroup}>
         <label for="exampleInputEmail1">City</label>
-        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="City"/>
+        <input type="text" className={styles.formControl} id="exampleInputEmail1"  placeholder="City" value={formData.city} name="city"/>
     </div>
   </div>
   <div>
   <div className={styles.formGroup}>
     <label htmlFor="stateSelect">State</label>
-    <select className={styles.formControl} id="stateSelect"defaultValue="">
+    <select className={styles.formControl} id="stateSelect" defaultValue="" value={formData.state} onChange={handleInputChange}>
     <option value="" disabled>Select State</option>
         {US_STATES.map(state => (
         <option key={state} value={state}>{state}</option>
@@ -74,7 +157,7 @@ function MyForm() {
    </div>
         <div className={styles.formGroup}>
             <label htmlFor="contractType">Contract Type</label>
-            <select className={styles.formControl} id="contractType" defaultValue="">
+            <select className={styles.formControl} id="contractType" defaultValue="" value={formData.contract} onChange={handleInputChange}>
                 <option value="" disabled>Select Contract Type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Day">Day</option>
@@ -83,7 +166,7 @@ function MyForm() {
         </div>
         <div className={styles.formGroup}>
         <label htmlFor="contractType">Budget</label>
-        <select className={styles.formControl} id="contractType" defaultValue="">
+        <select className={styles.formControl} id="contractType" defaultValue="" value={formData.budget} onChange={handleInputChange}>
             <option value="" disabled>Select Range</option>
             <option value="$0-$500">$0-$500</option>
             <option value="$0-$500">$500-$1000</option>

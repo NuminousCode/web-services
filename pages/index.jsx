@@ -19,8 +19,8 @@ const Home = ({params}) => {
   return (
     <div className = {styles.containerMain}>
       <Modal open={open} onClose={handleClose}>
-        <div className = {styles.modalContainer}>
-        <Form />
+        <div className = {styles.modalContainer}  onClick={(e) => e.stopPropagation()}>
+        <Form handleClose={handleClose}/>
         </div>
       </Modal>
       <Header handleOpen={handleOpen} />
