@@ -19,7 +19,9 @@ const Home = ({params}) => {
   return (
     <div className = {styles.containerMain}>
       <Modal open={open} onClose={handleClose}>
+        <div className = {styles.modalContainer}>
         <Form />
+        </div>
       </Modal>
       <Header handleOpen={handleOpen} />
       <Main data = {imgUrls} content = {cardContent} handleOpen={handleOpen}/>

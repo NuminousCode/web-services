@@ -65,20 +65,21 @@ function MyForm() {
   <div>
   <div className={styles.formGroup}>
     <label htmlFor="stateSelect">State</label>
-    <select className={styles.formControl} id="stateSelect">
+    <select className={styles.formControl} id="stateSelect"defaultValue="">
+    <option value="" disabled>Select State</option>
         {US_STATES.map(state => (
         <option key={state} value={state}>{state}</option>
         ))}
     </select>
    </div>
         <div className={styles.formGroup}>
-        <label htmlFor="contractType">Contract Type</label>
-        <select className={styles.formControl} id="contractType" defaultValue="">
-            <option value="" disabled>Select Contract Type</option>
-            <option value="Hourly">Hourly</option>
-            <option value="Day">Day</option>
-            <option value="Project">Project</option>
-        </select>
+            <label htmlFor="contractType">Contract Type</label>
+            <select className={styles.formControl} id="contractType" defaultValue="">
+                <option value="" disabled>Select Contract Type</option>
+                <option value="Hourly">Hourly</option>
+                <option value="Day">Day</option>
+                <option value="Project">Project</option>
+            </select>
         </div>
         <div className={styles.formGroup}>
         <label htmlFor="contractType">Budget</label>
@@ -144,7 +145,7 @@ function MyForm() {
     </div>
     <div class="form-group" className={styles.formGroup}>
     <label for="exampleFormControlTextarea1">Describe The Project</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
   </div>
   <button type="submit" className={`btn btn-primary ${styles.button}`}>Submit</button>
   </div>
