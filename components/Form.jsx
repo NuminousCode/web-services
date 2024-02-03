@@ -6,6 +6,24 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 function MyForm() {
+    const US_STATES = [
+        "Alabama", "Alaska", "Arizona", "Arkansas", 
+        "California", "Colorado", "Connecticut", 
+        "Delaware", "Florida", "Georgia", 
+        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", 
+        "Kansas", "Kentucky", "Louisiana", 
+        "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", 
+        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", 
+        "Ohio", "Oklahoma", "Oregon", 
+        "Pennsylvania", 
+        "Rhode Island", 
+        "South Carolina", "South Dakota", 
+        "Tennessee", "Texas", 
+        "Utah", 
+        "Vermont", "Virginia", 
+        "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    ];
+    
 
     const [date, setDate] = useState('');
     const [selectedDate, setSelectedDate] = useState(null);
@@ -18,15 +36,49 @@ function MyForm() {
        <form className = {styles.form}>
   <div className="form-group">
     <div className = {styles.containerCall}>
-        <div className = {styles.title}>Call Now</div>
+        <div className = {styles.title}>Call Or Text Now</div>
         <div className = {styles.number}>409-292-9017</div>
     </div>
+    <div className = {styles.formGroup}>
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+    <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
   </div>
   <div>
-  <LocalizationProvider dateAdapter={AdapterDayjs}>
+    
+        <div className={styles.formGroup}>
+        <label htmlFor="contractType">Contract Type</label>
+        <select className={styles.formControl} id="contractType" defaultValue="">
+            <option value="" disabled>Select Contract Type</option>
+            <option value="Hourly">Hourly</option>
+            <option value="Day">Day</option>
+            <option value="Project">Project</option>
+        </select>
+        </div>
+        <div className={styles.formGroup}>
+        <label htmlFor="contractType">Budget</label>
+        <select className={styles.formControl} id="contractType" defaultValue="">
+            <option value="" disabled>Select Range</option>
+            <option value="$0-$500">$0-$500</option>
+            <option value="$0-$500">$500-$1000</option>
+            <option value="$0-$500">$1000-$5000</option>
+            <option value="$0-$500">$5000-$20000</option>
+            <option value="$0-$500">$20000-$50000</option>
+            <option value="$0-$500">$50000+</option>
+        </select>
+        </div>
+<div className={styles.formGroup}>
+  <label htmlFor="stateSelect">State</label>
+  <select className={styles.formControl} id="stateSelect">
+    {US_STATES.map(state => (
+      <option key={state} value={state}>{state}</option>
+    ))}
+  </select>
+</div>
+<div className = {styles.datePicker}>
+  <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
+    <div className = {styles.dateTitle}>When do you need me to start</div>
           <DatePicker
             sx={{ width: 300, '& .MuiInputBase-input': {
                 height: '10px' 
@@ -37,16 +89,25 @@ function MyForm() {
           />
     </LocalizationProvider>
     </div>
-
-  <div className="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
+    <div className = {styles.datePicker}>
+  <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
+    <div className = {styles.dateTitle}>When should the project be completed</div>
+          <DatePicker
+            sx={{ width: 300, '& .MuiInputBase-input': {
+                height: '10px' 
+            }}}
+            slotProps={{
+              field: { clearable: true, onClear: () => setCleared(true) },
+            }}
+          />
+    </LocalizationProvider>
+    </div>
+    </div>
+    <div class="form-group" className={styles.formGroup}>
+    <label for="exampleFormControlTextarea1">Describe The Project</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-  <div className="form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
+  <button type="submit" className={`btn btn-primary ${styles.button}`}>Submit</button>
 </form>
     </div>
     );
