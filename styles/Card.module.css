@@ -1,5 +1,6 @@
 .containerCard{
     position: relative;
+    height: 100%;
     width: 80%;
     max-width: 450px;
     border: solid #7B919D 1px;
@@ -19,6 +20,7 @@
     text-shadow: 1px 1px 4px #051d30;
 }
 .list {
+    /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,12 +81,25 @@
         padding: 2% 2%;
         max-height: 400px;
     }
+    .containerCard:nth-of-type(3) .listItem:not(:last-child) {
+        font-size: 16px;
+    }
+    
+  
     .list :nth-child(4){
         font-size: 24px;
+        margin-left: -2rem;
+    }
+    .list{
+        height: 100%;
+        width: 100%;
+        margin-left: 0;
     }
     .listItem {
-        font-size: 18px;
+        font-size: 17px;
+        margin: 5px 0;
     }
+
     .containerCard:nth-of-type(3) ul {
         justify-content: center;
     }

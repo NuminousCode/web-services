@@ -1,0 +1,21 @@
+.containerMain{
+    
+    font-family: 'Orbitron';
+    display:flex;
+    justify-content: center;
+}
+
+.containerCall{
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.form{
+    border-radius: 10px;
+    width: 500px;
+    background: beige;
+}

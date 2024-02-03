@@ -1,4 +1,10 @@
 import '../styles/globals.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  '@mui/material/styles';
+
+
+
+
 
 function MyApp({ Component, pageProps }) {
   return (
