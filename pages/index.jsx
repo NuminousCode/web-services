@@ -15,14 +15,27 @@ const Home = ({params}) => {
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const handleFormSubmit = (submitted) => {
+      setIsSubmitted(submitted);
+      setTimeout(() => {
+        setIsSubmitted(false); 
+    }, 5000);
+  };
   
   return (
     <div className = {styles.containerMain}>
       <Modal open={open} onClose={handleClose}>
         <div className = {styles.modalContainer}  onClick={(e) => e.stopPropagation()}>
-        <Form handleClose={handleClose}/>
+        <Form handleClose={handleClose} onFormSubmit={handleFormSubmit}/>
         </div>
       </Modal>
+      {isSubmitted && 
+        <div className={styles.confirmationMessage}>
+            Thank you for your message! <br/>I'll contact you soon.
+        </div>
+      }
       <Header handleOpen={handleOpen} />
       <Main data = {imgUrls} content = {cardContent} handleOpen={handleOpen}/>
       <Footer />

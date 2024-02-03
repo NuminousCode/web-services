@@ -5,14 +5,13 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-function MyForm({ handleClose }) {
+function MyForm({ handleClose, onFormSubmit }) {
     const form = useRef()
     const [emailError, setEmailError] = useState('');
     const [formErrors, setFormErrors] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const emailRegex = /\S+@\S+\.\S+/;
-    // Form data state variable declaration
 
+    // Form data state variable declaration
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -86,42 +85,43 @@ function MyForm({ handleClose }) {
     const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            emailjs.sendForm(serviceId, templateId, form.current, publicKey).then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-
-            console.log('Form submitted:', formData);
-            setFormData({
-                firstName: '',
-                lastName: '',
-                company:'',
-                email: '',
-                phone: '',
-                city: '',
-                state: '',
-                contract: '',
-                budget: '',
-                description: '',
-                startDate: null, 
-                endDate: null   
-            });
-            setIsSubmitted(true); 
-                
-            setTimeout(() => {
-                setIsSubmitted(false); 
-            }, 5000);
-
-        } (error) => {
-            console.log('Form submission error:', error.text);
-        
-            setSubmissionDescription('Failed to send the description. Please try again.');
-        };
+            try {
+                await emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+                    .then((result) => {
+                        console.log('Email sent:', result.text);
+                    
+                        setFormData({
+                            firstName: '',
+                            lastName: '',
+                            company:'',
+                            email: '',
+                            phone: '',
+                            city: '',
+                            state: '',
+                            contract: '',
+                            budget: '',
+                            description: '',
+                            startDate: null, 
+                            endDate: null   
+                        });
+                        onFormSubmit(true);
+                    })
+                    .catch((error) => {
+                        console.error('Email sending error:', error.text);
+                        onFormSubmit(false);
+                    });
+            } catch (error) {
+                console.error('Submission error:', error);
+                onFormSubmit(false);
+            }
+        } else {
+            onFormSubmit(false);
+        }
     };
+    
 
     const handleCloseModal = (e) => {
         if (e.currentTarget === e.target) {
