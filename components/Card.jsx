@@ -1,7 +1,6 @@
 import styles from '../styles/Card.module.css';
 
 const Card = ({ data, gradient }) => {
-  console.log(gradient)
   return (
     <div className={styles.containerCard} style={gradient}>
       <ul className={styles.list}>

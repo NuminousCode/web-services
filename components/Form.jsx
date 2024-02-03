@@ -34,19 +34,43 @@ function MyForm() {
     return (
     <div className = {styles.containerMain}>
        <form className = {styles.form}>
+        <div className = {styles.formInner}>
   <div className="form-group">
     <div className = {styles.containerCall}>
         <div className = {styles.title}>Call Or Text Now</div>
         <div className = {styles.number}>409-292-9017</div>
     </div>
     <div className = {styles.formGroup}>
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="exampleInputEmail1">First Name</label>
+        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter First Name"/>
+    </div>
+    <div className = {styles.formGroup}>
+        <label for="exampleInputEmail1">Last Name</label>
+        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name"/>
+    </div>
+    <div className = {styles.formGroup}>
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div className = {styles.formGroup}>
+        <label for="exampleInputEmail1">Phone</label>
+        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone"/>
+    </div>
+    <div className = {styles.formGroup}>
+        <label for="exampleInputEmail1">City</label>
+        <input type="email" className={styles.formControl} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="City"/>
     </div>
   </div>
   <div>
-    
+  <div className={styles.formGroup}>
+    <label htmlFor="stateSelect">State</label>
+    <select className={styles.formControl} id="stateSelect">
+        {US_STATES.map(state => (
+        <option key={state} value={state}>{state}</option>
+        ))}
+    </select>
+   </div>
         <div className={styles.formGroup}>
         <label htmlFor="contractType">Contract Type</label>
         <select className={styles.formControl} id="contractType" defaultValue="">
@@ -68,21 +92,25 @@ function MyForm() {
             <option value="$0-$500">$50000+</option>
         </select>
         </div>
-<div className={styles.formGroup}>
-  <label htmlFor="stateSelect">State</label>
-  <select className={styles.formControl} id="stateSelect">
-    {US_STATES.map(state => (
-      <option key={state} value={state}>{state}</option>
-    ))}
-  </select>
-</div>
+
 <div className = {styles.datePicker}>
   <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
     <div className = {styles.dateTitle}>When do you need me to start</div>
           <DatePicker
             sx={{ width: 300, '& .MuiInputBase-input': {
-                height: '10px' 
-            }}}
+                height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px'  
+            }, '& .MuiSvgIcon-root': {
+                color: 'white', 
+              },'& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'white', 
+                },'&:hover fieldset': {
+                    borderColor: 'white', 
+                  },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#4EDFEA', // Border color when focused
+                },
+              }}}
             slotProps={{
               field: { clearable: true, onClear: () => setCleared(true) },
             }}
@@ -94,8 +122,19 @@ function MyForm() {
     <div className = {styles.dateTitle}>When should the project be completed</div>
           <DatePicker
             sx={{ width: 300, '& .MuiInputBase-input': {
-                height: '10px' 
-            }}}
+                height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px'  
+            }, '& .MuiSvgIcon-root': {
+                color: 'white', 
+              },'& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'white', 
+                },'&:hover fieldset': {
+                    borderColor: 'white', 
+                  },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#4EDFEA', // Border color when focused
+                },
+              }}}
             slotProps={{
               field: { clearable: true, onClear: () => setCleared(true) },
             }}
@@ -108,6 +147,7 @@ function MyForm() {
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
   <button type="submit" className={`btn btn-primary ${styles.button}`}>Submit</button>
+  </div>
 </form>
     </div>
     );

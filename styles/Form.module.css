@@ -1,5 +1,4 @@
 .containerMain{
-    
     font-family: 'Orbitron';
     display:flex;
     justify-content: center;
@@ -13,27 +12,50 @@
     justify-content: center;
 }
 
+.title, .number{
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
 .form{
+    background: linear-gradient(180deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);
     border-radius: 10px;
     width: 500px;
-    background: beige;
+    margin-top: 2%;
+    /* height: 90vh; */
+}
+
+.formInner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: solid red 1px; */
+    align-items: center;
 }
 
 .formControl{
-    max-width: 80%;
     border-radius: 5px;
     border: 1px solid grey;
+    width: 100%;
+    height: 40px;
 }
 
 .formGroup{
-    margin-left: 5%;
-    max-width: 80%;
+    /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
+    width: 400px;
 }
-.datePicker{
-    /* border: solid red 1px; */
-    margin-left: 5%;
+.formGroup:nth-of-type(2){
+/* border: solid red 1px; */
+margin-top: 5%;
+}
+
+.formGroup :nth-child(1), .dateTitle{
+    color:white;
+    font-size: 18px;
+    text-shadow: 2px 2px 2px black;
 }
 
 .button{
