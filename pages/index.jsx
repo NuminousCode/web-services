@@ -17,6 +17,7 @@ const Home = ({params}) => {
   const handleOpen = () => setOpen(true);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
   const handleFormSubmit = (submitted) => {
       setIsSubmitted(submitted);
       setTimeout(() => {

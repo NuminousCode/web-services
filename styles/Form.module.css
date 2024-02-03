@@ -71,8 +71,13 @@
     border: solid white 1px;
 }
 
+
 .button:hover {
     border: solid hsla(195, 94%, 73%, 1) 1px;
+}
+
+.error{
+    margin: 5% 0;
 }
 
 .link{

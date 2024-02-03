@@ -29,10 +29,23 @@ function MyForm({ handleClose, onFormSubmit }) {
     });
 
     const handleInputChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+      const { name, value } = e.target;
+            if (name === 'email') setEmailError('');
+        setFormErrors('');
+            if (name === 'email' && !emailRegex.test(value)) {
+            setEmailError('Please enter a valid email address.');
+        }
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+            if (name === 'email') setEmailError('');
+        setFormErrors('');
+            if (name === 'email' && !emailRegex.test(value)) {
+            setEmailError('Please enter a valid email address.');
+        }
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleDateChange = (name, newValue) => {
@@ -121,7 +134,6 @@ function MyForm({ handleClose, onFormSubmit }) {
             onFormSubmit(false);
         }
     };
-    
 
     const handleCloseModal = (e) => {
         if (e.currentTarget === e.target) {
@@ -141,28 +153,24 @@ function MyForm({ handleClose, onFormSubmit }) {
     </div>
     <div className = {styles.formGroup}>
         <label for="firstName">First Name</label>
-        <input type="email" className={styles.formControl} id="firstName"  placeholder="Enter First Name" value={formData.firstName} name="firstName"/>
+        <input type="email" className={styles.formControl} id="firstName"  placeholder="Enter First Name" value={formData.firstName} name="firstName"onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
         <label for="lastName">Last Name</label>
-        <input type="text" className={styles.formControl} id="lastName"  placeholder="Last Name" value={formData.lastName} name="lastName"/>
+        <input type="text" className={styles.formControl} id="lastName"  placeholder="Last Name" value={formData.lastName} name="lastName"onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
         <label for="email">Email address</label>
-        <input type="text" className={styles.formControl} id="email"  placeholder="Enter email" value={formData.email} name="email"/>
+        <input type="text" className={styles.formControl} id="email"  placeholder="Enter email" value={formData.email} name="email"onChange={handleInputChange}/>
         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div className = {styles.formGroup}>
         <label for="phone">Phone</label>
-        <input type="text" className={styles.formControl} id="phone"  placeholder="Phone" value={formData.phone} name="phone"/>
+        <input type="text" className={styles.formControl} id="phone"  placeholder="Phone" value={formData.phone} name="phone"onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
         <label for="city">City</label>
-        <input type="text" className={styles.formControl} id="city"  placeholder="City" value={formData.city} name="city"/>
-    </div>
-    <div className = {styles.formGroup}>
-        <label for="company">Company</label>
-        <input type="text" className={styles.formControl} id="company"  placeholder="Company" value={formData.company} name="company"/>
+        <input type="text" className={styles.formControl} id="city"  placeholder="City" value={formData.city} name="city"onChange={handleInputChange}/>
     </div>
   </div>
   <div>
@@ -175,6 +183,10 @@ function MyForm({ handleClose, onFormSubmit }) {
         ))}
     </select>
    </div>
+   <div className = {styles.formGroup}>
+        <label for="company">Company</label>
+        <input type="text" className={styles.formControl} id="company"  placeholder="Company" value={formData.company} name="company"onChange={handleInputChange}/>
+    </div>
         <div className={styles.formGroup}>
             <label htmlFor="contractType">Contract Type</label>
             <select className={styles.formControl} id="contractType" defaultValue="" value={formData.contract} onChange={handleInputChange}>
@@ -214,7 +226,7 @@ function MyForm({ handleClose, onFormSubmit }) {
                     borderColor: 'white', 
                   },
                 '&.Mui-focused fieldset': {
-                  borderColor: '#4EDFEA', // Border color when focused
+                  borderColor: '#4EDFEA', 
                 },
               }}}
             slotProps={{
@@ -251,10 +263,11 @@ function MyForm({ handleClose, onFormSubmit }) {
     </div>
     </div>
     <div class="form-group" className={styles.formGroup}>
-    <label for="exampleFormControlTextarea1">Describe The Project</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+    <label for="description">Describe The Project</label>
+    <textarea class="form-control" id="description" rows="10" onChange={handleInputChange}></textarea>
   </div>
   <button type="submit" className={`btn btn-primary ${styles.button}`}>Submit</button>
+  {formErrors && <div className={styles.error}>{formErrors}</div>}
   </div>
 </form>
     </div>
