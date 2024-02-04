@@ -26,16 +26,34 @@
     color: white;
     text-shadow: 2px 2px 2px black;
     z-index: 100;
-    position: absolute;
+    position: fixed;
     align-self: center;
     top: 30vh;
     width: 30%;
-    height: 30vh;
+    min-width: 300px;
+    padding: 5%;
     background: white;
     text-align: center;
     border-radius: 20px;
-    padding: 5% 0 0 0;
-    font-size: 32px;
+    font-size: 24px;
     background: linear-gradient(45deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);
 }
 
+@media(min-width: 750px){
+    .confirmationMessage{
+        box-shadow: 5px 5px 5px white;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+        z-index: 100;
+        position: fixed;
+        align-self: center;
+        top: 30vh;
+        width: 30%;
+        min-width: 500px;
+        background: white;
+        text-align: center;
+        border-radius: 20px;
+        font-size: 32px;
+        background: linear-gradient(45deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);
+    }
+}

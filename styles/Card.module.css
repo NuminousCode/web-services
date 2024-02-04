@@ -18,13 +18,14 @@
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 1px 4px #051d30;
+    margin-left: -2rem;
+    /* border: solid red 1px; */
 }
 .list {
     /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 1rem;
 }
 
 .listItem {
@@ -88,7 +89,6 @@
   
     .list :nth-child(4){
         font-size: 24px;
-        margin-left: -2rem;
     }
     .list{
         height: 100%;

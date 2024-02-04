@@ -20,6 +20,7 @@
 .rate{
     text-align: center;
     font-size: 42px;
+    padding: 0 2%;
 }
 
 .titleCard{
@@ -34,7 +35,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
     z-index: 10;
 }
 .titleCard{
@@ -58,10 +58,10 @@
     }
     .rate{
         font-size: 48px;
+        padding: 0;
     }
     .titleCard{
-        font-size: 42px;
-        /* margin-top: 5%; */
+        font-size: 52px;
     }
     .button{
         margin-top: 15%;
@@ -75,13 +75,15 @@
 
 @media(min-width: 1400px){
     .desktopTitleCards{
-        font-size: 24px;
         /* border: solid red 1px; */
         display: flex;
         flex-direction: row;
         width: 80%;
         justify-content: space-between;
         margin: 5% 0 2%;
+    }
+    .desktopTitleCard{
+        font-size: 48px;
     }
     .cards{
         margin-top: 5%;

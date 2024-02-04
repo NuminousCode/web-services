@@ -36,7 +36,6 @@
     padding: 5% 5%;
     color: #08253B;
     text-align: center;
-    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.8);
     /* text-shadow: 2px 2px 2px hsla(195, 94%, 73%, 1); */
 }
 .button{
@@ -50,6 +49,7 @@
         font-size: 36px;
         border-radius: 10px;
         max-width: 450px;
+        box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.8);
     }
     .button{
         margin-top: 10%;

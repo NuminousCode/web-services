@@ -1,4 +1,3 @@
-
 import { useState, useRef } from 'react';
 import styles from '../styles/Form.module.css'
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -71,13 +70,13 @@ function Form({ handleClose, onFormSubmit }) {
         let errors = [];
         if (!firstName) errors.push('First Name');
         if (!lastName) errors.push('Last Name');
-        if (!email || emailError) errors.push(emailError);
+        if (!email || emailError) errors.push('Email');
         if (!phone) errors.push('Phone');
         if (!city) errors.push('City');
         if (!state) errors.push('State');
         if (!budget) errors.push('Budget');
-        if (!contract) errors.push('Contract');
-        if (!description) errors.push('Description');
+        if (!contract) errors.push('Contract Type');
+        if (!description) errors.push('Project Description');
         if (!startDate) errors.push('Start Date');
         if (!endDate) errors.push('End Date');
         if (errors.length > 0) {
@@ -134,8 +133,8 @@ function Form({ handleClose, onFormSubmit }) {
     return (
     <div className = {styles.containerMain} onClick={handleCloseModal}>
        <form className = {styles.form} ref={form} onSubmit={handleSubmit}>
-        <div className = {styles.formInner} onClick={(e) => e.stopPropagation()}>
-  <div className="form-group">
+        <div className = {styles.formInner}  onClick={(e) => e.stopPropagation()}>
+  
     <div className = {styles.containerCall}>
         <div className = {styles.title}>Call Or Text Now</div>
         <a href="tel:+14092929017" className = {styles.link}><div className = {styles.number}>409-292-9017</div></a>
@@ -161,8 +160,6 @@ function Form({ handleClose, onFormSubmit }) {
         <label htmlFor="city">City</label>
         <input type="text" className={styles.formControl} id="city" placeholder="City" value={formData.city} name="city" onChange={handleInputChange}/>
     </div>
-  </div>
-  <div>
   <div className={styles.formGroup}>
     <label htmlFor="stateSelect">State</label>
     <select className={styles.formControl} id="stateSelect" value={formData.state} onChange={handleInputChange} name="state">
@@ -201,12 +198,12 @@ function Form({ handleClose, onFormSubmit }) {
 
 <div className = {styles.datePicker}>
   <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
-    <div className = {styles.dateTitle}>When do you need me to start</div>
+    <div className = {styles.dateTitle}>When do you need me to start?</div>
           <DatePicker
            value={formData.startDate}
            onChange={(newValue) => handleDateChange('startDate', newValue)}
-            sx={{ width: 300, '& .MuiInputBase-input': {
-                height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px'  
+            sx={{ width: 250, '& .MuiInputBase-input': {
+                height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px' , width: '200px' 
             }, '& .MuiSvgIcon-root': {
                 color: 'white', 
               },'& .MuiOutlinedInput-root': {
@@ -218,6 +215,12 @@ function Form({ handleClose, onFormSubmit }) {
                 '&.Mui-focused fieldset': {
                   borderColor: '#4EDFEA', 
                 },
+                '@media (min-width: 750px)': { // Media query for viewport width > 750px
+                    width: 300, // Increased width
+                    '& .MuiInputBase-input': {
+                        width: '250px' // Adjusted input width
+                    }
+                }
               }}}
             slotProps={{
               field: { clearable: true, onClear: () => setCleared(true) },
@@ -232,12 +235,12 @@ function Form({ handleClose, onFormSubmit }) {
     </div>
     <div className = {styles.datePicker}>
   <LocalizationProvider dateAdapter={AdapterDayjs} className = {styles.datePicker}>
-    <div className = {styles.dateTitle}>When should the project be completed</div>
+    <div className = {styles.dateTitle}>When should the project be completed?</div>
           <DatePicker
            value={formData.endDate}
            onChange={(newValue) => handleDateChange('endDate', newValue)}
-            sx={{ width: 300, '& .MuiInputBase-input': {
-                height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px'  
+            sx={{ width: 250, '& .MuiInputBase-input': {
+                height: '10px', color: 'white', border: 'white solid 1px', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px' , width: '200px'   
             }, '& .MuiSvgIcon-root': {
                 color: 'white', 
               },'& .MuiOutlinedInput-root': {
@@ -249,6 +252,12 @@ function Form({ handleClose, onFormSubmit }) {
                 '&.Mui-focused fieldset': {
                   borderColor: '#4EDFEA', // Border color when focused
                 },
+                '@media (min-width: 750px)': { // Media query for viewport width > 750px
+                    width: 300, // Increased width
+                    '& .MuiInputBase-input': {
+                        width: '250px' // Adjusted input width
+                    }
+                }
               }}}
             slotProps={{
               field: { clearable: true, onClear: () => setCleared(true) },
@@ -261,14 +270,14 @@ function Form({ handleClose, onFormSubmit }) {
     />
     </LocalizationProvider>
     </div>
-    </div>
     <div class="form-group" className={styles.formGroup}>
     <label htmlFor="description">Describe The Project</label>
     <textarea class="form-control" id="description" rows="10" onChange={handleInputChange} value={formData.description} name="description"></textarea>
   </div>
   <button type="submit" className={`btn btn-primary ${styles.button}`}>Submit</button>
   {formErrors && <div className={styles.error}>{formErrors}</div>}
-  </div>
+    </div>
+  
 </form>
     </div>
     );

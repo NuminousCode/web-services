@@ -11,9 +11,10 @@
 }
 
 .title{
-    color: #a9d6e5;
+    color: white;
     text-shadow: 2px 2px 2px #051d30;
     font-size: 36px;
+    text-align: center;
 }
 
 .content{

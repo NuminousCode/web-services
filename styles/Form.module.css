@@ -6,6 +6,7 @@
 }
 
 .containerCall {
+    /* border: solid red 1px; */
     margin-top: 5%;
     display: flex;
     align-items: center;
@@ -24,7 +25,7 @@
 .form {
     background: linear-gradient(180deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);
     border-radius: 10px;
-    width: 500px;
+    width: 300px;
     margin: 2% 0;
 }
 
@@ -37,6 +38,7 @@
 }
 
 .formControl {
+    /* border: solid red 1px; */
     border-radius: 5px;
     border: 1px solid grey;
     width: 100%;
@@ -44,15 +46,16 @@
 }
 
 .formGroup {
-    /* border: solid red 1px; */
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 300px;
 }
 
 .formGroup,
 .datePicker {
     margin-top: 3%;
+    /* border: solid red 1px; */
+    max-width: 250px;
 }
 
 .formGroup :nth-child(1),
@@ -85,4 +88,15 @@
 
 .link{
     text-decoration: none;
+}
+
+@media(min-width: 750px){
+    .formGroup,
+    .datePicker {
+        margin-top: 3%;
+        max-width: 300px;
+}
+.form {
+    width: 500px;
+}
 }
