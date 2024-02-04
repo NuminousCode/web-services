@@ -6,7 +6,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import emailjs from '@emailjs/browser';
 
-function MyForm({ handleClose, onFormSubmit }) {
+function Form({ handleClose, onFormSubmit }) {
     const form = useRef()
     const [emailError, setEmailError] = useState('');
     const [formErrors, setFormErrors] = useState('');
@@ -70,15 +70,13 @@ function MyForm({ handleClose, onFormSubmit }) {
         let errors = [];
         if (!firstName) errors.push('First Name');
         if (!lastName) errors.push('Last Name');
-        if (!email || emailError) errors.push('Email');
+        if (!email || emailError) errors.push(emailError);
         if (!phone) errors.push('Phone');
         if (!city) errors.push('City');
         if (!state) errors.push('State');
-        if (!company) errors.push('Company');
         if (!budget) errors.push('Budget');
         if (!contract) errors.push('Contract');
         if (!description) errors.push('Description');
-
         if (errors.length > 0) {
             setFormErrors(`Please fill the following fields: ${errors.join(', ')}.`);
             return false;
@@ -96,7 +94,6 @@ function MyForm({ handleClose, onFormSubmit }) {
                 await emailjs.sendForm(serviceId, templateId, form.current, publicKey)
                     .then((result) => {
                         console.log('Email sent:', result.text);
-                    
                         setFormData({
                             firstName: '',
                             lastName: '',
@@ -173,6 +170,7 @@ function MyForm({ handleClose, onFormSubmit }) {
    <div className = {styles.formGroup}>
         <label htmlFor="company">Company</label>
         <input type="text" className={styles.formControl} id="company"  placeholder="Company" value={formData.company} name="company"onChange={handleInputChange}/>
+        <small id="emailHelp" className="form-text text-muted">Optional</small>
     </div>
         <div className={styles.formGroup}>
             <label htmlFor="contractType1">Contract Type</label>
@@ -261,4 +259,4 @@ function MyForm({ handleClose, onFormSubmit }) {
     );
 }
 
-export default MyForm;
+export default Form;
