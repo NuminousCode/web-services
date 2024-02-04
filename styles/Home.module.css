@@ -1,4 +1,4 @@
-.containerMain{
+.containerMain {
     width: 100vw;
     position: relative;
     display: flex;
@@ -9,19 +9,19 @@
     font-family: 'Orbitron';
 }
 
-.backgroundVideo{
+.backgroundVideo {
     position: absolute;
     width: 100vw;
     height: 100%;
     object-fit: cover;
 }
 
-.modalContainer{
+.modalContainer {
     overflow-y: auto;
     height: 100vh;
 }
 
-.confirmationMessage{
+.confirmationMessage {
     box-shadow: 5px 5px 5px white;
     color: white;
     text-shadow: 2px 2px 2px black;
@@ -39,8 +39,8 @@
     background: linear-gradient(45deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);
 }
 
-@media(min-width: 750px){
-    .confirmationMessage{
+@media(min-width: 750px) {
+    .confirmationMessage {
         box-shadow: 5px 5px 5px white;
         color: white;
         text-shadow: 2px 2px 2px black;

@@ -1,14 +1,4 @@
-.containerMain{
-    width: 100%;
-    /* border: solid red 1px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10;
-    height: 100%;
-}
-
-.cardsInner{
+.containerMain {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -17,18 +7,27 @@
     height: 100%;
 }
 
-.rate{
+.cardsInner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    height: 100%;
+}
+
+.rate {
     text-align: center;
     font-size: 42px;
     padding: 0 2%;
 }
 
-.titleCard{
+.titleCard {
     font-size: 36px;
     margin: 5% 0 2% 0;
 }
 
-.cards{
+.cards {
     margin-top: 20%;
     position: relative;
     width: 100%;
@@ -37,68 +36,82 @@
     align-items: center;
     z-index: 10;
 }
-.titleCard{
+
+.titleCard {
     width: 80%;
     text-align: center;
 }
-.button{
+
+.button {
     margin-top: 15%;
 }
-.desktopTitleCards{
+
+.desktopTitleCards {
     display: none;
 }
-@media(min-width: 750px){
-    .containerMain{
+
+@media(min-width: 750px) {
+    .containerMain {
         width: 90%;
         align-self: center;
         max-width: 1200px;
     }
-    .cards{
+
+    .cards {
         margin-top: 10%;
     }
-    .rate{
+
+    .rate {
         font-size: 48px;
         padding: 0;
     }
-    .titleCard{
+
+    .titleCard {
         font-size: 52px;
     }
-    .button{
+
+    .button {
         margin-top: 15%;
     }
 }
-@media(min-width: 1000px){
-.rate{
-    font-size: 64px;
-}
+
+@media(min-width: 1000px) {
+    .rate {
+        font-size: 64px;
+    }
 }
 
-@media(min-width: 1400px){
-    .desktopTitleCards{
-        /* border: solid red 1px; */
+@media(min-width: 1400px) {
+    .desktopTitleCards {
         display: flex;
         flex-direction: row;
         width: 80%;
         justify-content: space-between;
         margin: 5% 0 2%;
     }
-    .desktopTitleCard{
+
+    .desktopTitleCard {
         font-size: 48px;
     }
-    .cards{
+
+    .cards {
         margin-top: 5%;
     }
-    .cardsInner{
+
+    .cardsInner {
         flex-direction: row;
         justify-content: space-between;
     }
-    .titleCard{
-        display:none;
+
+    .titleCard {
+        display: none;
     }
-    .button{
+
+    .button {
         margin-top: 10%;
     }
-    .rate{
+
+    .rate {
         margin-top: 5%;
     }
 }

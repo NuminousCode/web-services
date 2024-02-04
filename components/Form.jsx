@@ -215,10 +215,10 @@ function Form({ handleClose, onFormSubmit }) {
                 '&.Mui-focused fieldset': {
                   borderColor: '#4EDFEA', 
                 },
-                '@media (min-width: 750px)': { // Media query for viewport width > 750px
-                    width: 300, // Increased width
+                '@media (min-width: 750px)': { 
+                    width: 300, 
                     '& .MuiInputBase-input': {
-                        width: '250px' // Adjusted input width
+                        width: '250px' 
                     }
                 }
               }}}
@@ -250,12 +250,12 @@ function Form({ handleClose, onFormSubmit }) {
                     borderColor: 'white', 
                   },
                 '&.Mui-focused fieldset': {
-                  borderColor: '#4EDFEA', // Border color when focused
+                  borderColor: '#4EDFEA', 
                 },
-                '@media (min-width: 750px)': { // Media query for viewport width > 750px
-                    width: 300, // Increased width
+                '@media (min-width: 750px)': {
+                    width: 300,
                     '& .MuiInputBase-input': {
-                        width: '250px' // Adjusted input width
+                        width: '250px'
                     }
                 }
               }}}

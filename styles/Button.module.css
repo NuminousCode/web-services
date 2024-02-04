@@ -1,4 +1,4 @@
-.button{
+.button {
     position: relative;
     text-transform: uppercase;
     font-size: 24px;
@@ -23,11 +23,10 @@
     background: linear-gradient(45deg, hsla(206, 76%, 13%, 1) 7%, hsla(195, 94%, 73%, 1) 100%);
     opacity: 0;
     transition: opacity 1s ease;
-    border-radius: 10px; 
+    border-radius: 10px;
     z-index: -1
 }
 
 .button:hover::before {
     opacity: 1;
 }
-

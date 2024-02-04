@@ -1,4 +1,4 @@
-.containerExpertise{
+.containerExpertise {
     padding: 10%;
     display: flex;
     flex-direction: column;
@@ -10,14 +10,14 @@
     z-index: 10;
 }
 
-.title{
+.title {
     color: white;
     text-shadow: 2px 2px 2px #051d30;
     font-size: 36px;
     text-align: center;
 }
 
-.content{
+.content {
     line-height: 30px;
     margin-top: 10%;
     font-size: 18px;
@@ -25,20 +25,21 @@
     text-shadow: 1px 1px 4px #051d30;
 }
 
-@media(min-width: 750px){
-    .containerExpertise{
+@media(min-width: 750px) {
+    .containerExpertise {
         margin-top: 10%;
         padding: 5%;
     }
-    .title{
+
+    .title {
         font-size: 48px;
     }
 }
-@media(min-width: 1000px){
-    .content{
+
+@media(min-width: 1000px) {
+    .content {
         line-height: 40px;
         margin-top: 5%;
         font-size: 24px;
     }
 }
-

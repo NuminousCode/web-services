@@ -6,7 +6,6 @@
 }
 
 .containerCall {
-    /* border: solid red 1px; */
     margin-top: 5%;
     display: flex;
     align-items: center;
@@ -33,12 +32,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border: solid red 1px; */
     align-items: center;
 }
 
 .formControl {
-    /* border: solid red 1px; */
     border-radius: 5px;
     border: 1px solid grey;
     width: 100%;
@@ -54,7 +51,6 @@
 .formGroup,
 .datePicker {
     margin-top: 3%;
-    /* border: solid red 1px; */
     max-width: 250px;
 }
 
@@ -79,24 +75,26 @@
     border: solid hsla(195, 94%, 73%, 1) 1px;
 }
 
-.error{
+.error {
     font-weight: bold;
     color: #e63946;
     margin: 0 20% 5%;
     text-align: center;
 }
 
-.link{
+.link {
     text-decoration: none;
 }
 
-@media(min-width: 750px){
+@media(min-width: 750px) {
+
     .formGroup,
     .datePicker {
         margin-top: 3%;
         max-width: 300px;
-}
-.form {
-    width: 500px;
-}
+    }
+
+    .form {
+        width: 500px;
+    }
 }
