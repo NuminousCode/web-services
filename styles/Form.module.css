@@ -77,7 +77,10 @@
 }
 
 .error{
-    margin: 5% 0;
+    font-weight: bold;
+    color: #e63946;
+    margin: 0 20% 5%;
+    text-align: center;
 }
 
 .link{

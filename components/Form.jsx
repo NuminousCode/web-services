@@ -109,6 +109,7 @@ function Form({ handleClose, onFormSubmit }) {
                             endDate: null   
                         });
                         onFormSubmit(true);
+                        handleClose();
                     })
                     .catch((error) => {
                         console.error('Email sending error:', error.text);
@@ -137,30 +138,30 @@ function Form({ handleClose, onFormSubmit }) {
     </div>
     <div className = {styles.formGroup}>
         <label htmlFor="firstName">First Name</label>
-        <input type="text" className={styles.formControl} id="firstName" placeholder="Enter First Name" value={formData.firstName} name="firstName"onChange={handleInputChange}/>
+        <input type="text" className={styles.formControl} id="firstName" placeholder="Enter First Name" value={formData.firstName} name="firstName" onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
         <label htmlFor="lastName">Last Name</label>
-        <input type="text" className={styles.formControl} id="lastName" placeholder="Last Name" value={formData.lastName} name="lastName"onChange={handleInputChange}/>
+        <input type="text" className={styles.formControl} id="lastName" placeholder="Last Name" value={formData.lastName} name="lastName" onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
         <label htmlFor="email">Email address</label>
-        <input type="email" className={styles.formControl} id="email" placeholder="Enter email" value={formData.email} name="email"onChange={handleInputChange}/>
+        <input type="email" className={styles.formControl} id="email" placeholder="Enter email" value={formData.email} name="email" onChange={handleInputChange}/>
         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div className = {styles.formGroup}>
         <label htmlFor="phone">Phone</label>
-        <input type="text" className={styles.formControl} id="phone" placeholder="Phone" value={formData.phone} name="phone"onChange={handleInputChange}/>
+        <input type="text" className={styles.formControl} id="phone" placeholder="Phone" value={formData.phone} name="phone" onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
         <label htmlFor="city">City</label>
-        <input type="text" className={styles.formControl} id="city" placeholder="City" value={formData.city} name="city"onChange={handleInputChange}/>
+        <input type="text" className={styles.formControl} id="city" placeholder="City" value={formData.city} name="city" onChange={handleInputChange}/>
     </div>
   </div>
   <div>
   <div className={styles.formGroup}>
     <label htmlFor="stateSelect">State</label>
-    <select className={styles.formControl} id="stateSelect" value={formData.state} onChange={handleInputChange}>
+    <select className={styles.formControl} id="stateSelect" value={formData.state} onChange={handleInputChange} name="state">
     <option value="" disabled>Select State</option>
         {US_STATES.map(state => (
         <option key={state} value={state}>{state}</option>
@@ -174,7 +175,7 @@ function Form({ handleClose, onFormSubmit }) {
     </div>
         <div className={styles.formGroup}>
             <label htmlFor="contractType1">Contract Type</label>
-            <select className={styles.formControl} id="contractType1" value={formData.contract} onChange={handleInputChange}>
+            <select className={styles.formControl} id="contractType1" value={formData.contract} onChange={handleInputChange} name="contract">
                 <option value="" disabled>Select Contract Type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Day">Day</option>
@@ -183,7 +184,7 @@ function Form({ handleClose, onFormSubmit }) {
         </div>
         <div className={styles.formGroup}>
         <label htmlFor="contractType2">Budget</label>
-        <select className={styles.formControl} id="contractType2" value={formData.budget} onChange={handleInputChange}>
+        <select className={styles.formControl} id="contractType2" value={formData.budget} onChange={handleInputChange} name="budget">
             <option value="" disabled>Select Range</option>
             <option value="$0-$500">$0-$500</option>
             <option value="$500-$1000">$500-$1000</option>

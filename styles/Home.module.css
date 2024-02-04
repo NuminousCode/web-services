@@ -20,3 +20,22 @@
     overflow-y: auto;
     height: 100vh;
 }
+
+.confirmationMessage{
+    box-shadow: 5px 5px 5px white;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    z-index: 100;
+    position: absolute;
+    align-self: center;
+    top: 30vh;
+    width: 30%;
+    height: 30vh;
+    background: white;
+    text-align: center;
+    border-radius: 20px;
+    padding: 5% 0 0 0;
+    font-size: 32px;
+    background: linear-gradient(45deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);
+}
+
