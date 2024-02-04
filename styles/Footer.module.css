@@ -29,7 +29,12 @@
 .items :nth-child(2){
     margin-right: 5%;
 }
-
+.left{
+    /* border: solid red 1px; */
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+}
 @media(min-width: 750px){
     .containerMain{
         margin-top: 15%;
