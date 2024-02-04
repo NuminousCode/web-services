@@ -4,6 +4,7 @@ import styles from '../styles/Form.module.css'
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import emailjs from '@emailjs/browser';
 
 function MyForm({ handleClose, onFormSubmit }) {
     const form = useRef()
@@ -15,7 +16,6 @@ function MyForm({ handleClose, onFormSubmit }) {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
-        company:'',
         email: '',
         phone: '',
         city: '',
@@ -29,24 +29,16 @@ function MyForm({ handleClose, onFormSubmit }) {
     });
 
     const handleInputChange = (e) => {
-      const { name, value } = e.target;
-            if (name === 'email') setEmailError('');
-        setFormErrors('');
-            if (name === 'email' && !emailRegex.test(value)) {
-            setEmailError('Please enter a valid email address.');
-        }
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleChange = (e) => {
         const { name, value } = e.target;
-            if (name === 'email') setEmailError('');
-        setFormErrors('');
-            if (name === 'email' && !emailRegex.test(value)) {
-            setEmailError('Please enter a valid email address.');
+        if (name === 'email') {
+            if (!emailRegex.test(value)) {
+                setEmailError('Please enter a valid email address.');
+            } else {
+                setEmailError('');
+            }
         }
         setFormData({ ...formData, [name]: value });
-    };
+    };    
 
     const handleDateChange = (name, newValue) => {
         setFormData({
@@ -85,7 +77,7 @@ function MyForm({ handleClose, onFormSubmit }) {
         if (!company) errors.push('Company');
         if (!budget) errors.push('Budget');
         if (!contract) errors.push('Contract');
-        if (!description) errors.push('description');
+        if (!description) errors.push('Description');
 
         if (errors.length > 0) {
             setFormErrors(`Please fill the following fields: ${errors.join(', ')}.`);
@@ -101,7 +93,6 @@ function MyForm({ handleClose, onFormSubmit }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            try {
                 await emailjs.sendForm(serviceId, templateId, form.current, publicKey)
                     .then((result) => {
                         console.log('Email sent:', result.text);
@@ -126,10 +117,7 @@ function MyForm({ handleClose, onFormSubmit }) {
                         console.error('Email sending error:', error.text);
                         onFormSubmit(false);
                     });
-            } catch (error) {
-                console.error('Submission error:', error);
-                onFormSubmit(false);
-            }
+      
         } else {
             onFormSubmit(false);
         }
@@ -140,7 +128,6 @@ function MyForm({ handleClose, onFormSubmit }) {
             handleClose(); 
         }
     };
-    const [cleared, setCleared] = useState(false);
 
     return (
     <div className = {styles.containerMain} onClick={handleCloseModal}>
@@ -152,31 +139,31 @@ function MyForm({ handleClose, onFormSubmit }) {
         <a href="tel:+14092929017" className = {styles.link}><div className = {styles.number}>409-292-9017</div></a>
     </div>
     <div className = {styles.formGroup}>
-        <label for="firstName">First Name</label>
-        <input type="email" className={styles.formControl} id="firstName"  placeholder="Enter First Name" value={formData.firstName} name="firstName"onChange={handleInputChange}/>
+        <label htmlFor="firstName">First Name</label>
+        <input type="text" className={styles.formControl} id="firstName" placeholder="Enter First Name" value={formData.firstName} name="firstName"onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
-        <label for="lastName">Last Name</label>
-        <input type="text" className={styles.formControl} id="lastName"  placeholder="Last Name" value={formData.lastName} name="lastName"onChange={handleInputChange}/>
+        <label htmlFor="lastName">Last Name</label>
+        <input type="text" className={styles.formControl} id="lastName" placeholder="Last Name" value={formData.lastName} name="lastName"onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
-        <label for="email">Email address</label>
-        <input type="text" className={styles.formControl} id="email"  placeholder="Enter email" value={formData.email} name="email"onChange={handleInputChange}/>
+        <label htmlFor="email">Email address</label>
+        <input type="email" className={styles.formControl} id="email" placeholder="Enter email" value={formData.email} name="email"onChange={handleInputChange}/>
         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div className = {styles.formGroup}>
-        <label for="phone">Phone</label>
-        <input type="text" className={styles.formControl} id="phone"  placeholder="Phone" value={formData.phone} name="phone"onChange={handleInputChange}/>
+        <label htmlFor="phone">Phone</label>
+        <input type="text" className={styles.formControl} id="phone" placeholder="Phone" value={formData.phone} name="phone"onChange={handleInputChange}/>
     </div>
     <div className = {styles.formGroup}>
-        <label for="city">City</label>
-        <input type="text" className={styles.formControl} id="city"  placeholder="City" value={formData.city} name="city"onChange={handleInputChange}/>
+        <label htmlFor="city">City</label>
+        <input type="text" className={styles.formControl} id="city" placeholder="City" value={formData.city} name="city"onChange={handleInputChange}/>
     </div>
   </div>
   <div>
   <div className={styles.formGroup}>
     <label htmlFor="stateSelect">State</label>
-    <select className={styles.formControl} id="stateSelect" defaultValue="" value={formData.state} onChange={handleInputChange}>
+    <select className={styles.formControl} id="stateSelect" value={formData.state} onChange={handleInputChange}>
     <option value="" disabled>Select State</option>
         {US_STATES.map(state => (
         <option key={state} value={state}>{state}</option>
@@ -184,12 +171,12 @@ function MyForm({ handleClose, onFormSubmit }) {
     </select>
    </div>
    <div className = {styles.formGroup}>
-        <label for="company">Company</label>
+        <label htmlFor="company">Company</label>
         <input type="text" className={styles.formControl} id="company"  placeholder="Company" value={formData.company} name="company"onChange={handleInputChange}/>
     </div>
         <div className={styles.formGroup}>
-            <label htmlFor="contractType">Contract Type</label>
-            <select className={styles.formControl} id="contractType" defaultValue="" value={formData.contract} onChange={handleInputChange}>
+            <label htmlFor="contractType1">Contract Type</label>
+            <select className={styles.formControl} id="contractType1" value={formData.contract} onChange={handleInputChange}>
                 <option value="" disabled>Select Contract Type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Day">Day</option>
@@ -197,8 +184,8 @@ function MyForm({ handleClose, onFormSubmit }) {
             </select>
         </div>
         <div className={styles.formGroup}>
-        <label htmlFor="contractType">Budget</label>
-        <select className={styles.formControl} id="contractType" defaultValue="" value={formData.budget} onChange={handleInputChange}>
+        <label htmlFor="contractType2">Budget</label>
+        <select className={styles.formControl} id="contractType2" value={formData.budget} onChange={handleInputChange}>
             <option value="" disabled>Select Range</option>
             <option value="$0-$500">$0-$500</option>
             <option value="$500-$1000">$500-$1000</option>
@@ -263,8 +250,8 @@ function MyForm({ handleClose, onFormSubmit }) {
     </div>
     </div>
     <div class="form-group" className={styles.formGroup}>
-    <label for="description">Describe The Project</label>
-    <textarea class="form-control" id="description" rows="10" onChange={handleInputChange}></textarea>
+    <label htmlFor="description">Describe The Project</label>
+    <textarea class="form-control" id="description" rows="10" onChange={handleInputChange} value={formData.description} name="description"></textarea>
   </div>
   <button type="submit" className={`btn btn-primary ${styles.button}`}>Submit</button>
   {formErrors && <div className={styles.error}>{formErrors}</div>}
