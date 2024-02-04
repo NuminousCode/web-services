@@ -41,12 +41,13 @@ function Form({ handleClose, onFormSubmit }) {
     };    
 
     const handleDateChange = (name, newValue) => {
-        setFormData({
-            ...formData,
-            [name]: newValue
-        });
-    };
-    
+      setFormData({
+          ...formData,
+          [name]: newValue  
+      });
+  };
+  
+  
     const US_STATES = [
         "Alabama", "Alaska", "Arizona", "Arkansas", 
         "California", "Colorado", "Connecticut", 
@@ -66,7 +67,7 @@ function Form({ handleClose, onFormSubmit }) {
     ];
 
     const validateForm = () => {
-        const { firstName, lastName, email, phone, city, state, company, budget, contract, description } = formData;
+        const { firstName, lastName, email, phone, city, state, budget, contract, description, startDate, endDate } = formData;
         let errors = [];
         if (!firstName) errors.push('First Name');
         if (!lastName) errors.push('Last Name');
@@ -77,6 +78,8 @@ function Form({ handleClose, onFormSubmit }) {
         if (!budget) errors.push('Budget');
         if (!contract) errors.push('Contract');
         if (!description) errors.push('Description');
+        if (!startDate) errors.push('Start Date');
+        if (!endDate) errors.push('End Date');
         if (errors.length > 0) {
             setFormErrors(`Please fill the following fields: ${errors.join(', ')}.`);
             return false;
@@ -94,6 +97,7 @@ function Form({ handleClose, onFormSubmit }) {
                 await emailjs.sendForm(serviceId, templateId, form.current, publicKey)
                     .then((result) => {
                         console.log('Email sent:', result.text);
+                        console.log('Form Data', formData);
                         setFormData({
                             firstName: '',
                             lastName: '',
@@ -219,6 +223,11 @@ function Form({ handleClose, onFormSubmit }) {
               field: { clearable: true, onClear: () => setCleared(true) },
             }}
           />
+              <input
+        type="hidden"
+        name="startDate"
+        value={formData.startDate ? formData.startDate.format('YYYY-MM-DD') : ''}
+    />
     </LocalizationProvider>
     </div>
     <div className = {styles.datePicker}>
@@ -245,6 +254,11 @@ function Form({ handleClose, onFormSubmit }) {
               field: { clearable: true, onClear: () => setCleared(true) },
             }}
           />
+              <input
+        type="hidden"
+        name="endDate"
+        value={formData.endDate ? formData.endDate.format('YYYY-MM-DD') : ''}
+    />
     </LocalizationProvider>
     </div>
     </div>
