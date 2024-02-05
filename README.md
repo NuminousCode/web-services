@@ -12,7 +12,7 @@ EmailJS: Integrated contact form allowing clients to easily send inquiries.
 
 Material-UI: Modern UI components that are visually appealing and highly customizable.
 
-Deployed on Cloudflare 
+Deployment & CI/CD with Cloudflare 
 
 ## Installation
 
