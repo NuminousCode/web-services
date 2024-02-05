@@ -40,12 +40,11 @@ function Form({ handleClose, onFormSubmit }) {
     };    
 
     const handleDateChange = (name, newValue) => {
-      setFormData({
-          ...formData,
-          [name]: newValue  
-      });
-  };
-  
+        setFormData({
+            ...formData,
+            [name]: newValue  
+        });
+    };
   
     const US_STATES = [
         "Alabama", "Alaska", "Arizona", "Arkansas", 
@@ -223,7 +222,7 @@ function Form({ handleClose, onFormSubmit }) {
                 }
               }}}
             slotProps={{
-              field: { clearable: true, onClear: () => setCleared(true) },
+              field: { clearable: true },
             }}
           />
               <input
@@ -260,7 +259,7 @@ function Form({ handleClose, onFormSubmit }) {
                 }
               }}}
             slotProps={{
-              field: { clearable: true, onClear: () => setCleared(true) },
+              field: { clearable: true },
             }}
           />
               <input
