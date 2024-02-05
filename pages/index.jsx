@@ -7,6 +7,8 @@ import fs from 'fs'
 import path from 'path'
 import Modal from '@mui/material/Modal';
 import Form from '../components/Form'
+import Head from 'next/head';
+
 
 const Home = ({params}) => {
   const cardContent = params.cardContent
@@ -27,6 +29,10 @@ const Home = ({params}) => {
   
   return (
     <div className = {styles.containerMain}>
+       <Head>
+        <title>Magis Web Services</title>
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <Modal open={open} onClose={handleClose}>
         <div className = {styles.modalContainer}  onClick={(e) => e.stopPropagation()}>
         <Form handleClose={handleClose} onFormSubmit={handleFormSubmit}/>
