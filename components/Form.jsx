@@ -150,7 +150,7 @@ function Form({ handleClose, onFormSubmit }) {
     <div className = {styles.formGroup}>
         <label htmlFor="email">Email address</label>
         <input type="email" className={styles.formControl} id="email" placeholder="Enter email" value={formData.email} name="email" onChange={handleInputChange}/>
-        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small id="emailHelp" className="form-text text-muted">Your email will never be shared with anyone else.</small>
     </div>
     <div className = {styles.formGroup}>
         <label htmlFor="phone">Phone</label>
