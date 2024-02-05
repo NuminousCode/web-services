@@ -1,6 +1,7 @@
 #  Next.Js Web Services SPA (Single Page Application)
 
-This repository contains the source code for a web development services application, a modern, responsive website designed to showcase the developer's web development capabilities and services. Built with Next.js, Bootstrap, EmailJS, and Material-UI, this application offers a sleek user interface, interactive components, and a functional contact form.
+This repository contains the source code for a web development services application, a modern, responsive website designed to showcase the developer's web development capabilities and services. Built with Next.js, Bootstrap, EmailJS, and Material-UI, this application offers a sleek user interface, interactive components, and a functional contact form. Contentful headless CMS is employed for
+image and video management.  
 
 Features
 Next.js Framework: Utilizes the powerful React framework for server-side rendering and SEO optimization.
@@ -19,13 +20,14 @@ Deployed on Cloudflare
 
 * Node.js: Preferably the latest LTS version. 
 * npm: comes bundled with Node.js.
+* Contenful account
 * Basic Understanding: Familiarity with Next.js, React, JavaScript (ES6+), Node.js.
 * EmailJs account for form handling
 
 
 ### Dependencies 
 
-Next.Js | Bootstrap | Material UI | emailJs
+Next.Js | Bootstrap | Material UI | Contentful | emailJs | dotenv
 
 
 ### Clone the Repository
