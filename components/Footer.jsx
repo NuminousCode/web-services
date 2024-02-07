@@ -9,7 +9,7 @@ const Footer = () => {
         </svg>
         <div className = {styles.items}>
           <a href="mailto:contact@magiswebservices.com" className = {styles.link}><div className = {styles.footerText}>contact@magiswebservices.com</div></a>
-          <div className = {styles.footerText}><span style={{fontSize: "16px"}}></span>Magis Web Services &trade;</div>
+          <div className = {styles.footerText}><span style={{fontSize: "16px"}}></span> &copy; 2024 Magis Web Services. &trade; All Rights Reserved. </div>
           <div className = {styles.footerText}><span style={{fontSize: "16px"}}>&#128205;</span> Katy, TX, USA</div>
         </div>
     </div>
