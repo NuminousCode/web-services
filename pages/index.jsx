@@ -32,6 +32,7 @@ const Home = ({params}) => {
        <Head>
         <title>Magis Web Services</title>
         <link rel="icon" href="/favicon.svg" />
+        <meta name="description" content="Discover top-notch web services with Magis Web Services. We specialize in creating custom websites, web applications, and providing SEO solutions to elevate your online presence. Contact us today to bring your digital vision to life." />
       </Head>
       <Modal open={open} onClose={handleClose}>
         <div className = {styles.modalContainer}  onClick={(e) => e.stopPropagation()}>
