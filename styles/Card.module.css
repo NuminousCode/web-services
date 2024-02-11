@@ -1,3 +1,7 @@
+/*****************
+Card Component Styles
+******************/
+
 .containerCard {
     position: relative;
     height: 100%;
@@ -31,6 +35,10 @@
     text-shadow: 1px 1px 4px #051d30;
     margin-left: -2rem;
 }
+
+/*****************
+Media Queries
+******************/
 
 @media(min-width: 550px) {
     .containerCard {

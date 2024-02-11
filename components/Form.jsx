@@ -6,9 +6,14 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import emailjs from '@emailjs/browser';
 
 function Form({ handleClose, onFormSubmit }) {
+    //Reference declaration
     const form = useRef()
+
+    //useState variable declaration
     const [emailError, setEmailError] = useState('');
     const [formErrors, setFormErrors] = useState('');
+
+    //Regex declaration for email format test
     const emailRegex = /\S+@\S+\.\S+/;
 
     // Form data state variable declaration
@@ -27,6 +32,7 @@ function Form({ handleClose, onFormSubmit }) {
         endDate: null   
     });
 
+    //Custom input change function
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         if (name === 'email') {
@@ -64,6 +70,7 @@ function Form({ handleClose, onFormSubmit }) {
         "Washington", "West Virginia", "Wisconsin", "Wyoming"
     ];
 
+    //Validates each input from form, sets message for error display or returns true for form submission
     const validateForm = () => {
         const { firstName, lastName, email, phone, city, state, budget, contract, description, startDate, endDate } = formData;
         let errors = [];
@@ -85,10 +92,12 @@ function Form({ handleClose, onFormSubmit }) {
         return true;
     };
 
+    //Id and key declarations from dotenv
     const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
+    //Custom form submit function utilizing EmailJs
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
@@ -123,6 +132,7 @@ function Form({ handleClose, onFormSubmit }) {
         }
     };
 
+    // Closes modal containing form on click outside form
     const handleCloseModal = (e) => {
         if (e.currentTarget === e.target) {
             handleClose(); 

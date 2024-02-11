@@ -9,17 +9,20 @@ import Modal from '@mui/material/Modal';
 import Form from '../components/Form'
 import Head from 'next/head';
 
-
+//Home page component
 const Home = ({params}) => {
+  //Extract content from params
   const cardContent = params.cardContent
   const imgUrls = params.imgUrls
   const vidUrl = params.imgUrls[0]
+
+  // useState variable declarations
   const [open, setOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  //Function declarations
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  
   const handleFormSubmit = (submitted) => {
       setIsSubmitted(submitted);
       setTimeout(() => {
@@ -56,7 +59,7 @@ export async function getStaticProps(){
 
 const imgFilePath = path.join(process.cwd(), 'data/cmsIds.json');
 const cardsFilePath = path.join(process.cwd(), 'data/cards.json');
-// Read and parse JSON file 
+// Read and parse JSON files 
 const imgFileContents = fs.readFileSync(imgFilePath, 'utf8');
 const cardsFileContents = fs.readFileSync(cardsFilePath, 'utf8');
 const imgIds = JSON.parse(imgFileContents);
@@ -82,7 +85,7 @@ const spaceId = process.env.SPACE_ID;
     }
   }
 
-   // Prepare the image URLs to be passed as props to the page component
+   // Prepare the image URLs and cards content to be passed as props to the page component
   const params = {imgUrls, cardContent}
 
    // Return the image URLs as props

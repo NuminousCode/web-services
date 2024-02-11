@@ -1,3 +1,7 @@
+/*****************
+Form Styles
+******************/
+
 .containerMain {
     font-family: 'Orbitron';
     display: flex;
@@ -85,6 +89,10 @@
 .link {
     text-decoration: none;
 }
+
+/*****************
+Media Queries
+******************/
 
 @media(min-width: 750px) {
 

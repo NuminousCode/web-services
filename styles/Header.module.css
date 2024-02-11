@@ -1,3 +1,7 @@
+/*****************
+Header Section Styles
+******************/
+
 .containerMain {
     align-self: center;
     margin-top: 2%;
@@ -16,6 +20,10 @@
 .buttonWrapper {
     display: none;
 }
+
+/*****************
+Media Queries
+******************/
 
 @media(min-width: 550px) {
     .containerMain {
