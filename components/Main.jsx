@@ -6,11 +6,13 @@ import Expertise from '../components/Expertise'
 import Button from '../components/Button'
 
 const Main = ({data, content, handleOpen}) => {
+  //Card content extractions
   const cardContent = content[0]
   const contentCard1 = cardContent.Card1
   const contentCard2 = cardContent.Card2
   const contentCard3 = cardContent.Card3
 
+  //Gradient declarations
   const gradient1 = { 
     background: 'linear-gradient(135deg, hsla(195, 94%, 73%, 1) 0%, hsla(206, 76%, 13%, 1) 100%);'
   };const gradient2 = { 
